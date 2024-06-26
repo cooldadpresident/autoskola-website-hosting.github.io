@@ -83,13 +83,13 @@ section {
   font-size: 48px;
   font-weight: 300;
   margin-bottom: 20px;
-  color: var(--color-secondary);
+  color: var(--color-primary-black-rgb);
 }
 
 .section-header p {
   margin: 0 auto;
   font-weight: 900;
-  color: var(--color-secondary-light);
+  color: var(--color-black-rgb);
 }
 
 @media (min-width: 1280px) {
@@ -387,7 +387,7 @@ section {
   }
 
   .navbar .dropdown ul a i {
-    font-size: 12px;
+    font-size: px;
   }
 
   .navbar .dropdown ul a:hover,
