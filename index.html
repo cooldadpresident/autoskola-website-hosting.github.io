@@ -1349,8 +1349,29 @@ s
                   <textarea class="form-control" name="message" placeholder="Message" required></textarea>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="blue-button">Poslat</button>
                 </div>
+                <style>
+                  .blue-button {
+                    background-color: #77a3d1;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                  }
+                
+                  .blue-button:hover {
+                    background-color: #0056b3;
+                  }
+                
+                  .text-center {
+                    text-align: center;
+                  }
+                </style>
+
               </form>
             </div><!-- End Contact Form -->
 
