@@ -105,6 +105,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
+   * Scroll to heading when tab is shown in features section
+   */
+  const featuresTabs = document.querySelectorAll('#features .nav-link[data-bs-toggle="tab"]');
+  
+  featuresTabs.forEach(tab => {
+    tab.addEventListener('shown.bs.tab', function (event) {
+      // Get the target tab content
+      const targetId = this.getAttribute('data-bs-target');
+      const targetTab = document.querySelector(targetId);
+      
+      if (targetTab) {
+        // Find the h3 heading within the tab content
+        const heading = targetTab.querySelector('h3');
+        
+        if (heading) {
+          // Calculate offset for fixed header
+          const selectHeader = document.querySelector('#header');
+          let offset = 0;
+          
+          if (selectHeader.classList.contains('sticked')) {
+            offset = selectHeader.offsetHeight + 20; // Add extra 20px padding
+          } else if (selectHeader.hasAttribute('data-scrollto-offset')) {
+            offset = selectHeader.offsetHeight - parseInt(selectHeader.getAttribute('data-scrollto-offset')) + 20;
+          } else {
+            offset = 100; // Default offset
+          }
+          
+          // Smooth scroll to the heading
+          const headingPosition = heading.getBoundingClientRect().top + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: headingPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+
+  /**
    * Mobile nav toggle
    */
   const mobileNavToogle = document.querySelector('.mobile-nav-toggle');
